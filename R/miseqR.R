@@ -9,8 +9,7 @@
 # 2) multiplying by a given library size of n
 # 3) rounding down
 scale_reads <- function(physeq, n) {
-  physeq.scale <-
-    transform_sample_counts(physeq, function(x) {
+  physeq.scale <- transform_sample_counts(physeq, function(x) {
       (n * x/sum(x))
     })
   otu_table(physeq.scale) <- floor(otu_table(physeq.scale))
